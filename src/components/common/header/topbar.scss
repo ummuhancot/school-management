@@ -1,0 +1,19 @@
+@use "../../../styles/mixins" as *;
+
+.topbar {
+  background-color: $color1;
+  color: $color2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  .container {
+    @include flex($ai: center, $fw: nowrap);
+
+    .slogan {
+      width: 70%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @include flex($ai: center, $gap: 3px, $jc: start, $fw: nowrap);
+    }
+  }
+}
