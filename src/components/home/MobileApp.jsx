@@ -13,15 +13,17 @@ export const MobileApp = () => {
             <a
               className="btn btn-outline-primary me-2"
               href="https://www.apple.com/store"
+              target="_blank"
             >
-              <i className="pi pi-mobile pi-3x"></i> App Store
+              <i className="pi pi-apple pi-3x"></i> App Store
             </a>
 
             <a
               className="btn btn-outline-primary"
-              href="https://www.play.google.com"
+              href="https://play.google.com/store/apps"
+              target="_blank"
             >
-              <i className="pi pi-mobile pi-3x"></i> Play Store
+              <i className="pi pi-android pi-3x"></i> Play Store
             </a>
           </Col>
         </Row>

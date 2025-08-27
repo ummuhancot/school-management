@@ -19,10 +19,9 @@ export const UpcomingEventsCarousel = ({ upcomingEvents }) => {
     },
     {
       breakpoint: "768",
-      numVisible: 1,
+      numVisible: 2,
       numScroll: 1,
     },
-   
   ];
 
   const itemTemplate = (item) => {

@@ -1,0 +1,24 @@
+@use "../../styles/mixins" as *;
+
+.mobile-app{
+    /* position: relative;
+    bottom: -30; */
+    background-image: linear-gradient(45deg, $color1-op-10, $color2-op-10);
+    padding: 50px;
+
+  /*   
+  ? //class Container ile başlayanlar a değişiklik verebiliyoruz.
+   ! [class^="container"]{  
+   !     color : red;  
+   ! } 
+   */
+
+    [class^="container"]:hover{  
+        color : $color1;  
+    } 
+    [class^="container"]:active{  
+        color : $color5;  
+    } 
+
+
+}
