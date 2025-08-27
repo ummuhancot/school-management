@@ -1,0 +1,51 @@
+@use "../../styles/mixins" as *;
+
+.course-card{
+    height: 100%;
+
+     
+       // * full özelliğini düzenledim 
+    .img-container{
+        /* // ? burası fill yapmaz isek kullanıcağım style
+        width: 100%;
+        height: auto; */
+
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+        @include border-radius(5px)
+        
+    }
+        img {
+            object-fit: cover;
+            @include transition(transform 0.3s ease-in-out);
+            
+        }
+    
+    .card-title{
+        margin-top: 20px;
+        color: $color1;
+    }
+    
+    .card-footer{
+        background:none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        @include flex();
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: $color5;
+    }
+    
+    
+    &:hover {
+
+        img{
+
+            @include transform(scale(1.1) rotate(2deg));
+        }
+    }
+    
+
+    
+}

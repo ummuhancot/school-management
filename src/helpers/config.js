@@ -1,4 +1,6 @@
 export const config = { //projede sonradan değiştirme ihtimalinin olduğu yerleri buraya yaptık
+
+//appConfig olarak değiştirebiliriz burayı eğer hata alırsam nextjs ile ilgili bi uyarı değil esnit le alakalı 
   project: {
     name: "EasyGoingEducations",
     slogan: "Empowering Minds, One Step at a Time",

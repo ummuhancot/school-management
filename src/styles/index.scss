@@ -15,3 +15,11 @@
     letter-spacing: 0.3rem;
     @include shadow(text, 0 3px 3px $color2);
 }
+
+.content-section{
+    padding: 70px 0;
+    &.bg{
+        background-color: $color3;
+
+    }
+}
