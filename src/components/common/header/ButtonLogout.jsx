@@ -20,5 +20,6 @@ export const ButtonLogout = ({ setShow }) => {
     >
       LOGOUT
     </Button>
+    
   );
 };

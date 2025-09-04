@@ -23,7 +23,9 @@ export const createContactMessageAction = async (prevState, formData) => {
     }
 
     return response(true, "Your message was sent successfully", null);
+
   } catch (error) {
+    
     if (error instanceof YupValidationError) {
       return transformYupErrors(error.inner);
     }

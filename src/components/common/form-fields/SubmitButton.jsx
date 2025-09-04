@@ -2,7 +2,10 @@
 
 import { Button } from "react-bootstrap";
 
-export const SubmitButton = ({ title = "Submit", icon = "send", pending }) => {
+export const SubmitButton = (props) => {
+
+  const { title = "Submit", icon = "send", pending } = props;
+  
   const iconSrc = pending ? "pi pi-spin pi-spinner" : `pi pi-${icon}`;
 
   return (

@@ -29,6 +29,7 @@ export const Contact = () => {
       </Card>
 
       <Map />
+      
     </div>
   );
 };

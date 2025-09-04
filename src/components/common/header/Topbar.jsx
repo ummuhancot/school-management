@@ -2,6 +2,7 @@ import { config } from "@/helpers/config";
 import Link from "next/link";
 import { Container } from "react-bootstrap";
 import "./topbar.scss";
+import { AuthMenu } from "./AuthMenu";
 
 export const Topbar = () => {
   return (
@@ -11,7 +12,7 @@ export const Topbar = () => {
           <i className="pi pi-megaphone"></i>
           <span>{config.project.slogan}</span>
         </div>
-        
+        <AuthMenu />
       </Container>
     </div>
   );

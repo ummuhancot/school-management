@@ -6,11 +6,11 @@ import Credentials from "next-auth/providers/credentials";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
-      authorize: async (credentials) => {
+      authorize: async (credentials) => { // bu method dan donecek data userSession i oluşturur.
         const res = await login(credentials);
         const data = await res.json();
 
-        if (!res.ok) return null;
+        if (!res.ok) return null; //login başarıli ise null dondurur.
 
         const payload = {
           user: { ...data },
@@ -22,10 +22,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   callbacks: {
-    // middleware de ayarlandığı şekliyle, NextAuth'un kapsama alanına giren sayfalara yapılan isteklerden hemen önce authorize callbacki çalışır.
-    // Bu callback içinde döndürülen treu veya false ifadesine göre talep edilen sayfa açılır veya açılmaz.
+    /* middleware de ayarlandığı şekliyle, NextAuth'un kapsama alanına giren sayfalara yapılan isteklerden hemen önce authorize callbacki çalışır.
+    Bu callback içinde döndürülen treu veya false ifadesine göre talep edilen sayfa açılır veya açılmaz.
 
-    // JWT ihtiyaç duyulunca çalışan fonksiyon.
+    JWT ihtiyaç duyulunca çalışan fonksiyon. */
     async jwt({ token, user }) {
       if (user) {
         return {

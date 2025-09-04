@@ -6,7 +6,8 @@ export const FormContainer = ({ children }) => {
       <Row className="justify-content-center">
         <Col md={7} lg={6}>
           <Card>
-            <Card.Body className="p-4">{children}</Card.Body>
+            <Card.Body className="p-4">{children}
+            </Card.Body>
           </Card>
         </Col>
       </Row>
