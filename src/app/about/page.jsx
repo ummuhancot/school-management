@@ -3,7 +3,7 @@ import { Welcome } from "@/components/about/Welcome";
 import { PageHeader } from "@/components/common/page-header/PageHeader";
 
 import { Events } from "@/components/events/Events";
-import { Spacer } from "@/components/spacer/Spacer";
+import { Spacer } from "@/components/common/spacer/Spacer";
 
 export const metadata = {
   title: "About Us",
@@ -15,7 +15,7 @@ export default async function AboutUsPage() {
   return (
     <>
       <PageHeader title="About Us" />
-      <Spacer/>
+      <Spacer />
       <Welcome />
       <Spacer />
       <Instructors />
@@ -23,4 +23,3 @@ export default async function AboutUsPage() {
     </>
   );
 }
- 

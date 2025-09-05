@@ -2,6 +2,7 @@ import { getIsTokenValid, getIsUserAuthorized } from "@/helpers/auth-helpers";
 import { login } from "@/services/auth-service";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { NextResponse } from "next/server";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -12,10 +13,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         if (!res.ok) return null; //login başarıli ise null dondurur.
 
+        //Server e yani APi den bir şey talep ediliceği zaman burası çalışır yani APİ anahtarı Api den gelen token süresi 2 saat
         const payload = {
           user: { ...data },
           accessToken: data.token,
         };
+        delete payload.user.taken;
 
         return payload;
       },
@@ -26,17 +29,49 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     Bu callback içinde döndürülen treu veya false ifadesine göre talep edilen sayfa açılır veya açılmaz.
 
     JWT ihtiyaç duyulunca çalışan fonksiyon. */
+
+    //? middleware.js kısmını daha sade yapmak icin kısıtlamaları buradada alabiliriz.
+    
+    authorized ({auth,request}){
+
+      const { pathname, searchParams,origin } = request.nextUrl;
+      const isLoggedIn = !!auth?.user;
+      const isInLoginPage = pathname.startsWith("/login");
+      const isInDashboardPage = pathname.startsWith("/dashboard");
+
+      //login olmuş ise
+      if(isLoggedIn){
+        //login olmuş kullanıcı login dışında sayfalara yönlendirdik
+        if(isInLoginPage){
+          const url = searchParams.get("callbackUrl") || `${origin}/dashboard`;
+          return NextResponse.redirect(url);
+        } else if(isInDashboardPage){
+
+        }
+        
+        //login olamamış ise izin verilmiyor dashboard a gitmesine
+      } else if (isInDashboardPage){
+          return false;
+      }
+
+      return true;
+    },
+
+
+    //Uygulamada JWT token a ihtiyac duyulduğunda burası çalışır. jwt token i 1 ay kullanılabilir olabiliyor.
     async jwt({ token, user }) {
       if (user) {
         return {
           ...token,
-          user: user.user, // ensure user object is nested
+          user: user.user, // ensure user object is nested => kullanıcı nesnesinin iç içe olduğundan emin olun
           accessToken: user.accessToken,
         };
       }
       return token;
     },
 
+
+    //Uygulamada session bilgisine ihtiyac duyulduğunda burası calışır.
     async session({ session, token }) {
       const { accessToken, user } = token;
 

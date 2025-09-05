@@ -4,7 +4,7 @@ import { Courses } from "@/components/courses/Courses";
 import { Events } from "@/components/events/Events";
 
 import { UpcomingEvents } from "@/components/home/UpcomingEvents";
-import { Spacer } from "@/components/spacer/Spacer";
+import { Spacer } from "@/components/common/spacer/Spacer";
 
 export const metadata = {
   title: "Events",

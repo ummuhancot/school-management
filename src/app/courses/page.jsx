@@ -1,7 +1,7 @@
 import { PageHeader } from "@/components/common/page-header/PageHeader";
 
 import { Courses } from "@/components/courses/Courses";
-import { Spacer } from "@/components/spacer/Spacer";
+import { Spacer } from "@/components/common/spacer/Spacer";
 
 export const metadata = {
   title: "Courses",

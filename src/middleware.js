@@ -1,4 +1,6 @@
-import { getIsTokenValid, getIsUserAuthorized } from "@/helpers/auth-helpers";
+export { auth as middleware } from "@/auth";
+//? kısıtlamaları auth.js de tanımladım
+/* import { getIsTokenValid, getIsUserAuthorized } from "@/helpers/auth-helpers";
 import { NextResponse } from "next/server";
 
 import { auth } from "@/auth";
@@ -18,27 +20,28 @@ export default auth(async (request) => {
 
   if (isLoggedIn) {
     if (isInLoginPage) {
-      // logged in user going to /login → redirect to dashboard
+      // logged in user going to /login → redirect to dashboard => oturum açmış kullanıcı /login adresine gidiyor → panoya yönlendiriliyor
       return NextResponse.redirect(new URL("/dashboard", origin));
     }
 
     if (isInDashboardPage) {
       const isUserAuthorized = getIsUserAuthorized(userRole, pathname);
       if (!isUserAuthorized) {
-        // logged in but not authorized → redirect
+        // logged in but not authorized → redirect => giriş yapıldı ancak yetkilendirilmedi → yönlendirme
         return NextResponse.redirect(new URL("/unauthorized", origin));
       }
     }
 
-    // logged in and allowed → continue
+    // logged in and allowed → continue => giriş yapıldı ve izin verildi → devam et
     return NextResponse.next();
   }
 
-  // not logged in but trying to access dashboard → block
+  // not logged in but trying to access dashboard → block => oturum açılmadı ancak panoya erişmeye çalışılıyor → blok
   if (isInDashboardPage) {
     return NextResponse.redirect(new URL("/login", origin));
   }
 
-  // otherwise allow
+  // otherwise allow => aksi halde izin ver
   return NextResponse.next();
 });
+ */

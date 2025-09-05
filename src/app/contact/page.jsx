@@ -1,7 +1,7 @@
 import { PageHeader } from "@/components/common/page-header/PageHeader";
 
 import { Contact } from "@/components/contact/Contact";
-import { Spacer } from "@/components/spacer/Spacer";
+import { Spacer } from "@/components/common/spacer/Spacer";
 
 export const metadata = {
   title: "Contact",
@@ -12,7 +12,7 @@ export default async function ContactPage() {
   return (
     <>
       <PageHeader title="Contact" />
-      <Spacer/>
+      <Spacer />
       <Contact />
     </>
   );
