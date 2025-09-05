@@ -32,7 +32,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
     //? middleware.js kısmını daha sade yapmak icin kısıtlamaları buradada alabiliriz.
     
-    authorized ({auth,request}){
+/*     authorized ({auth,request}){
 
       const { pathname, searchParams,origin } = request.nextUrl;
       const isLoggedIn = !!auth?.user;
@@ -55,7 +55,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
 
       return true;
-    },
+    }, */
 
 
     //Uygulamada JWT token a ihtiyac duyulduğunda burası çalışır. jwt token i 1 ay kullanılabilir olabiliyor.
