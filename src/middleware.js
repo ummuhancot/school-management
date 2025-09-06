@@ -1,4 +1,4 @@
-//export { auth as middleware } from "@/auth";
+//? export { auth as middleware } from "@/auth";
 //? kısıtlamaları auth.js de tanımladım
 import { getIsTokenValid, getIsUserAuthorized } from "@/helpers/auth-helpers";
 import { NextResponse } from "next/server";

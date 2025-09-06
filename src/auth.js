@@ -31,31 +31,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     JWT ihtiyaç duyulunca çalışan fonksiyon. */
 
     //? middleware.js kısmını daha sade yapmak icin kısıtlamaları buradada alabiliriz.
-    
-/*     authorized ({auth,request}){
-
-      const { pathname, searchParams,origin } = request.nextUrl;
-      const isLoggedIn = !!auth?.user;
-      const isInLoginPage = pathname.startsWith("/login");
-      const isInDashboardPage = pathname.startsWith("/dashboard");
-
-      //login olmuş ise
-      if(isLoggedIn){
-        //login olmuş kullanıcı login dışında sayfalara yönlendirdik
-        if(isInLoginPage){
-          const url = searchParams.get("callbackUrl") || `${origin}/dashboard`;
-          return NextResponse.redirect(url);
-        } else if(isInDashboardPage){
-
-        }
-        
-        //login olamamış ise izin verilmiyor dashboard a gitmesine
-      } else if (isInDashboardPage){
-          return false;
-      }
-
-      return true;
-    }, */
+    /*   
+    ?  authorized ({auth,request}){
+    ?  return true;
+    }, 
+    */
 
 
     //Uygulamada JWT token a ihtiyac duyulduğunda burası çalışır. jwt token i 1 ay kullanılabilir olabiliyor.
